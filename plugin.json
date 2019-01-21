@@ -1,0 +1,12 @@
+{
+	"ID": "13A15E1779304870954B7C7D1458BE0A",
+	"ActionKeyword": "v",
+	"Name": "Volume plugin",
+	"Description": "Allows to control system volume via Wox",
+	"Author": "bnfour",
+	"Version": "1.0.0",
+	"Language": "python",
+	"Website": "https://github.com/bnfour/wox-volume-plugin",
+	"IcoPath": "TODO",
+	"ExecuteFileName": "main.py"
+}
