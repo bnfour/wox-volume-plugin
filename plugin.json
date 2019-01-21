@@ -7,6 +7,6 @@
 	"Version": "1.0.0",
 	"Language": "python",
 	"Website": "https://github.com/bnfour/wox-volume-plugin",
-	"IcoPath": "TODO",
+	"IcoPath": "icons\\icon.png",
 	"ExecuteFileName": "main.py"
 }
