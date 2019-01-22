@@ -21,6 +21,9 @@ class Main(Wox):
         For instance, input of "v 50 whatever" (assuming plugin keyword is v)
         will set parameters to "50 whatever".
         """
+        if not self.manager.init_success:
+            return [self.generator.generate_error(), ]
+
         value = self.parser.parse(parameters)
         if value is None:
             return []

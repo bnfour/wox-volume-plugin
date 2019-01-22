@@ -1,8 +1,12 @@
 from const import MUTE
 from ctypes import POINTER, cast
 
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+load_ok = True
+try:
+    from comtypes import CLSCTX_ALL
+    from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+except ImportError:
+    load_ok = False
 
 
 class VolumeManager(object):
@@ -11,11 +15,15 @@ class VolumeManager(object):
 
     def __init__(self):
         """Constructor that sets up interface for other methods to use."""
-        devices = AudioUtilities.GetSpeakers()
-        interface = devices.Activate(
-            IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-        self.volume_interface = cast(
-            interface, POINTER(IAudioEndpointVolume))
+        self.init_success = load_ok
+        if self.init_success:
+            devices = AudioUtilities.GetSpeakers()
+            interface = devices.Activate(
+                IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+            self.volume_interface = cast(
+                interface, POINTER(IAudioEndpointVolume))
+        else:
+            self.volume_interface = None
 
     def get_volume(self):
         """Returns current volume as 0--100 integer as displayed in tray volume
