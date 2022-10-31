@@ -1,4 +1,7 @@
-# Volume control plugin for Wox
+# UNSUPPORTED Volume control plugin for Wox
+
+No longer maintained, USE AT YOUR OWN RISK.  
+
 A plugin for [Wox launcher](http://wox.one/) to control system volume of
 currently active playback device from Wox rather than from system tray.  
 Kinda slow (about 150 ms per query), but hey, it's python.
